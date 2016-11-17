@@ -31,11 +31,11 @@
     <button type="button" name="button" onclick="active()">show</button>
 
     <form action="">
-      <input type="text" id="name-input" placeholder="your name, Ex : Juang">
-      <input type="text" id="email-input" placeholder="Must Email, Ex : Juang@gmail.com">
-      <input type="text" id="date-input" placeholder="Must date, Ex : 12-12-2017">
-      <input type="text" id="desc-input" placeholder="Must Phone, Ex : 08xxxxxxx">
-      <button type="button" name="button" onclick="createUser()"></button>
+      <input type="text" id="name-input" placeholder="Name">
+      <input type="email" id="email-input" placeholder="Juang@gmail.com">
+      <input type="date" id="date-input" placeholder="Date">
+      <input type="text" id="desc-input" placeholder="Description">
+      <button type="button" name="button" onclick="createUser()">Submit</button>
     </form>
 
     <script type="text/javascript">
@@ -46,14 +46,14 @@
 
     function createUser(){
       $.ajax({
-        url:  "http://localhost:3000/api/events",
+        url:  "http://localhost:3000/api/validations",
         method: 'post',
         contentType: 'application/x-www-form-urlencoded',
         data : {
           name : $('#name-input').val(),
           email : $('#email-input').val(),
-          date : $('#email-input').val(),
-          phone : $('#phone-input').val()
+          date : $('#date-input').val(),
+          description : $('#desc-input').val()
         },
         success: function(data) {
         },

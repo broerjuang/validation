@@ -6,7 +6,9 @@ let generate = (req, res) => {
   Validates
     .create(req.body)
     .then((result) => res.json(result))
-    .catch((err) => res.json(err))
+    .catch((err) => {
+      res.json(err.message)
+    })
 }
 
 
