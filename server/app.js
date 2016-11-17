@@ -9,11 +9,11 @@ const app = express();
 
 
 // Require Routes
-const validation = require('./validation.route');
+const validation = require('./routes/validation.route');
 
 // mongoose
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/event')
+mongoose.connect('mongodb://localhost/validation')
 
 // Use native promises
 mongoose.Promise = global.Promise;
@@ -24,10 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // require routes
-
-
-
-
+app.use('/api', validation)
 
 
 app.listen(port, () => {
